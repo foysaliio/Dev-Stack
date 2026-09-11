@@ -1,14 +1,42 @@
+import { Suspense } from "react";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Technologies from "./components/Technologies";
+import type { TechnologiesType } from "./Types/TechnologiesType";
+
+const loadTechnologies = async (): Promise<TechnologiesType[]> => {
+  const response = await fetch("/technologies.json");
+
+  if (!response.ok) {
+    throw new Error("Failed to load technologies.");
+  }
+
+  const technologies = await response.json();
+  return technologies;
+};
+
+// Keep this outside App
+const technologiesPromise = loadTechnologies();
 
 const App = () => {
   return (
     <>
       <Navbar />
       <Hero />
-      <Technologies />
-      <div className="h-[300px]"></div>
+      <Suspense
+        fallback={
+          <div
+            className="flex justify-center items-center py-20"
+            role="status"
+            aria-label="Loading technologies"
+          >
+            <span className="loading loading-spinner loading-lg text-pink-500" />
+          </div>
+        }
+      >
+        <Technologies technologiesPromise={technologiesPromise} />
+      </Suspense>
+      <div className="h-75"></div>
     </>
   );
 };

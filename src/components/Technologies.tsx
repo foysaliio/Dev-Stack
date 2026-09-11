@@ -1,4 +1,14 @@
-const Technologies = () => {
+import { use } from "react";
+import type { TechnologiesType } from "../Types/TechnologiesType";
+
+interface TechnologiesProps {
+  technologiesPromise: Promise<TechnologiesType[]>;
+}
+
+const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
+  const technologies = use(technologiesPromise);
+  console.log(technologies);
+
   return (
     <section id="technologies">
       <div className="container mx-auto px-3">
