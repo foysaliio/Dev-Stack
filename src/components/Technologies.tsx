@@ -1,5 +1,6 @@
 import { use } from "react";
 import type { TechnologiesType } from "../Types/TechnologiesType";
+import TechnologyCard from "./TechnologyCard";
 
 interface TechnologiesProps {
   technologiesPromise: Promise<TechnologiesType[]>;
@@ -7,7 +8,6 @@ interface TechnologiesProps {
 
 const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
   const technologies = use(technologiesPromise);
-  console.log(technologies);
 
   return (
     <section id="technologies">
@@ -31,10 +31,13 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
           {/* Technology cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:col-span-3">
             {/* TechnologyCard components will go here */}
+            {technologies.map((technology) => (
+              <TechnologyCard key={technology.id} technology={technology} />
+            ))}
           </div>
 
           {/* Your Stack */}
-          <aside className="border border-slate-200 rounded-xl p-5">
+          <aside className="border border-slate-200 rounded-xl p-5 shadow-sm">
             <h3 className="text-lg font-bold text-slate-900">Your Stack</h3>
 
             <p className="mt-1 text-sm text-slate-400">
