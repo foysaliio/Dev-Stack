@@ -8,6 +8,7 @@ const App = () => {
       <Navbar />
       <Hero />
       <Technologies />
+      <div className="h-[300px]"></div>
     </>
   );
 };
