@@ -75,7 +75,25 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
 
             <div className="mt-3 space-y-3">
               {selectedTechnologies.map((selectedTechnology) => (
-                <p key={selectedTechnology.id}> {selectedTechnology.name} </p>
+                <div
+                  key={selectedTechnology.id}
+                  className="flex items-center gap-2 border border-slate-200 rounded-lg p-3"
+                >
+                  <img
+                    src={selectedTechnology.icon}
+                    alt={selectedTechnology.name}
+                    className="w-7 h-7"
+                  />
+
+                  <div>
+                    <h4 className="text-sm font-semibold">
+                      {selectedTechnology.name}
+                    </h4>
+                    <p className="text-xs text-slate-400">
+                      {selectedTechnology.category}
+                    </p>
+                  </div>
+                </div>
               ))}
             </div>
           </aside>
