@@ -10,7 +10,7 @@ from an interactive sidebar.
 
 ## Project Preview
 
-![Dev Stack Builder desktop preview](/dev-stack-desktop.png)
+![Dev Stack Builder desktop preview](./public/dev-stack-desktop.png)
 
 ## Key Features
 

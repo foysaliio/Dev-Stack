@@ -121,7 +121,7 @@ const Footer = () => {
         <div className="mx-3 border-t py-1 border-slate-100 lg:mx-0">
           <div
             className="flex items-center justify-between gap-2
-        py-5 text-sm text-slate-400 lg:text-xs"
+        py-5 text-xs text-slate-400 lg:text-sm"
           >
             <p>© 2026 Dev Stack. All rights reserved.</p>
 
