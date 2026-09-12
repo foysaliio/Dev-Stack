@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../assets/logo-text.png";
+// import logo from "../assets/logo-text.png";
 import hamburger from "../assets/hamburger.png";
 
 const Navbar = () => {
@@ -22,7 +22,20 @@ const Navbar = () => {
 
         {/* Logo */}
         <div>
-          <img src={logo} alt="Dev Stack" className="w-20 sm:w-28 lg:w-32" />
+          {/* <img src={logo} alt="Dev Stack" className="w-20 sm:w-28 lg:w-32" /> */}
+          <div className="flex items-center gap-2">
+            <span
+              className="brand-gradient flex h-8 w-8
+      items-center justify-center rounded-lg
+      text-xs font-bold text-white"
+            >
+              DS
+            </span>
+
+            <span className="brand-gradient-text text-xl font-bold">
+              Dev Stack
+            </span>
+          </div>
         </div>
         {/* Nav Item */}
         <ul
@@ -31,7 +44,7 @@ const Navbar = () => {
           <li>
             <a
               onClick={() => setIsOpen(false)}
-              className="text-[#DB2777]"
+              className="hover:text-[#DB2777]"
               href="#"
             >
               Home
@@ -85,7 +98,7 @@ const Navbar = () => {
           </button>
 
           <button
-            className="bg-[#DB2777] px-4 py-2
+            className="brand-gradient px-4 py-2
       rounded-full text-xs sm:text-sm
       text-white cursor-pointer"
             type="button"

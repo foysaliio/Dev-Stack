@@ -1,4 +1,4 @@
-import footerImg from "../assets/logo-text.png";
+// import footerImg from "../assets/logo-text.png";
 
 const Footer = () => {
   return (
@@ -6,7 +6,20 @@ const Footer = () => {
       <div className="container mx-auto px-3 py-10 grid grid-cols-1 gap-8 lg:grid-cols-5">
         {/* Brand block */}
         <div className="flex flex-col items-center gap-4 text-center lg:col-span-2 lg:items-start lg:text-left">
-          <img src={footerImg} alt="Dev Stack" className="w-32 lg:w-24" />
+          {/* <img src={footerImg} alt="Dev Stack" className="w-32 lg:w-24" /> */}
+          <div className="flex items-center gap-2">
+            <span
+              className="brand-gradient flex h-8 w-8
+      items-center justify-center rounded-lg
+      text-xs font-bold text-white"
+            >
+              DS
+            </span>
+
+            <span className="brand-gradient-text text-xl font-bold">
+              Dev Stack
+            </span>
+          </div>
 
           <p className="max-w-md text-sm leading-6 text-slate-400">
             Curated tools, technologies, and resources for developers building
