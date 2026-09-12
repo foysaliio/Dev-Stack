@@ -1,4 +1,4 @@
-import { FaStar } from "react-icons/fa";
+import { FaCheck, FaStar } from "react-icons/fa";
 import type { TechnologiesType } from "../Types/TechnologiesType";
 
 interface TechnologyCardProps {
@@ -38,7 +38,10 @@ const TechnologyCard = ({
     badgeColors[id] ?? "bg-slate-50 text-slate-600 border-slate-100";
 
   return (
-    <div className="border border-slate-100 rounded-xl p-5 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+    <div
+      className={`border rounded-xl p-5 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5
+      ${isSelected ? "border-pink-500" : "border-slate-100"}`}
+    >
       {/* Icon, name and badge */}
       <div className="flex justify-between items-start gap-2">
         <div className="flex items-center gap-3 lg:block">
@@ -79,14 +82,24 @@ const TechnologyCard = ({
 
       {/* Add button */}
       <button
-        className="bg-slate-950 text-white rounded-lg
-          w-full py-2 mt-2 text-sm cursor-pointer transition-all duration-300
-          hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed"
+        className={`w-full rounded-lg py-2 mt-2 text-sm transition-all duration-300
+        ${
+          isSelected
+            ? "bg-pink-50 text-pink-500 cursor-not-allowed"
+            : "bg-slate-950 text-white cursor-pointer hover:bg-slate-800"
+        }`}
         type="button"
         onClick={() => handleAddToStack(technology)}
         disabled={isSelected}
       >
-        {isSelected ? "Added to Stack" : "Add to Stack"}
+        {isSelected ? (
+          <span className="flex items-center justify-center gap-2">
+            <FaCheck />
+            Added to Stack
+          </span>
+        ) : (
+          "Add to Stack"
+        )}
       </button>
     </div>
   );
