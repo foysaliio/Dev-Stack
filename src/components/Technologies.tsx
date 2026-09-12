@@ -72,6 +72,12 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
                 Your stack is empty.
               </p>
             )}
+
+            <div className="mt-3 space-y-3">
+              {selectedTechnologies.map((selectedTechnology) => (
+                <p key={selectedTechnology.id}> {selectedTechnology.name} </p>
+              ))}
+            </div>
           </aside>
         </div>
       </div>
