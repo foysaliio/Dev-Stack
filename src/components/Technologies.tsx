@@ -14,7 +14,9 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
   >([]);
 
   const handleAddToStack = (technology: TechnologiesType): void => {
-    console.log(technology);
+    const newSelectedTechnologies = [...selectedTechnologies, technology];
+
+    setSelectedTechnologies(newSelectedTechnologies);
   };
 
   return (
@@ -40,7 +42,11 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:col-span-3">
             {/* TechnologyCard components will go here */}
             {technologies.map((technology) => (
-              <TechnologyCard key={technology.id} technology={technology} handleAddToStack={handleAddToStack} />
+              <TechnologyCard
+                key={technology.id}
+                technology={technology}
+                handleAddToStack={handleAddToStack}
+              />
             ))}
           </div>
 
@@ -49,7 +55,8 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
             <h3 className="text-lg font-bold text-slate-900">Your Stack</h3>
 
             <p className="mt-1 text-sm text-slate-400">
-              No technologies selected yet.
+              {/* No technologies selected yet. */}
+              {selectedTechnologies.length} Technology Selected
             </p>
 
             <p className="mt-3 py-5 rounded-xl border-slate-300 text-center text-sm text-slate-400 border border-dashed">
