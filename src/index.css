@@ -10,3 +10,10 @@
 .brand-gradient {
   background-image: var(--brand-gradient);
 }
+
+.brand-gradient-text {
+  background-image: var(--brand-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}

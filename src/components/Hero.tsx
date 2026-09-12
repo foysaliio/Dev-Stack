@@ -15,7 +15,7 @@ const Hero = () => {
               font-bold leading-tight text-slate-900"
           >
             Build Your Ideal <br />
-            <span className="brand-gradient bg-clip-text text-transparent">
+            <span className="brand-gradient-text">
               Development Stack
             </span>
           </h1>
