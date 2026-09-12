@@ -37,6 +37,10 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
     setSelectedTechnologies(remainingTechnologies);
   };
 
+  const handleRemoveAll = (): void => {
+    setSelectedTechnologies([]);
+  };
+
   return (
     <section id="technologies">
       <div className="container mx-auto px-3">
@@ -114,6 +118,20 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
                 </div>
               ))}
             </div>
+
+            {/* Remove All button */}
+
+            {selectedTechnologies.length > 0 && (
+              <button
+                type="button"
+                onClick={handleRemoveAll}
+                className="mt-6 w-full rounded-lg border
+                  border-red-200 py-2 text-sm font-bold text-red-500 transition-all duration-300
+                  hover:bg-red-50 cursor-pointer"
+              >
+                Remove All
+              </button>
+            )}
           </aside>
         </div>
       </div>
