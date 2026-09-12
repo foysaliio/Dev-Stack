@@ -2,6 +2,7 @@ import { use, useState } from "react";
 import type { TechnologiesType } from "../Types/TechnologiesType";
 import TechnologyCard from "./TechnologyCard";
 import { RxCross2 } from "react-icons/rx";
+import { Bounce, toast } from "react-toastify";
 
 interface TechnologiesProps {
   technologiesPromise: Promise<TechnologiesType[]>;
@@ -20,25 +21,69 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
     );
 
     if (isAlreadyAdded) {
-      console.warn("Technology already added");
+      toast.warning(`${technology.name} is already in your stack.`, {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "light",
+        transition: Bounce,
+      });
       return;
     }
 
     const newSelectedTechnologies = [...selectedTechnologies, technology];
 
     setSelectedTechnologies(newSelectedTechnologies);
+    toast.success(`${technology.name} added to your stack.`, {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "light",
+      transition: Bounce,
+    });
   };
 
   const handleRemoveFromStack = (id: string): void => {
+    const removedTechnology = selectedTechnologies.find(
+      (selectedTechnology) => selectedTechnology.id === id,
+    );
+
     const remainingTechnologies = selectedTechnologies.filter(
       (selectedTechnology) => selectedTechnology.id !== id,
     );
 
     setSelectedTechnologies(remainingTechnologies);
+
+    toast.success(`${removedTechnology?.name} removed from your stack.`, {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "light",
+      transition: Bounce,
+    });
   };
 
   const handleRemoveAll = (): void => {
     setSelectedTechnologies([]);
+    toast.success("All technologies removed from your stack.", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "light",
+      transition: Bounce,
+    });
   };
 
   return (
@@ -69,8 +114,8 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
                 technology={technology}
                 handleAddToStack={handleAddToStack}
                 isSelected={selectedTechnologies.some(
-                  (setSelectedTechnology) =>
-                    setSelectedTechnology.id === technology.id,
+                  (selectedTechnology) =>
+                    selectedTechnology.id === technology.id,
                 )}
               />
             ))}
