@@ -23,19 +23,7 @@ const App = () => {
     <>
       <Navbar />
       <Hero />
-      <Suspense
-        fallback={
-          <div
-            className="flex justify-center items-center py-20"
-            role="status"
-            aria-label="Loading technologies"
-          >
-            <span className="loading loading-spinner loading-lg text-pink-500" />
-          </div>
-        }
-      >
-        <Technologies technologiesPromise={technologiesPromise} />
-      </Suspense>
+      <Technologies technologiesPromise={technologiesPromise} />
       <div className="h-75"></div>
     </>
   );

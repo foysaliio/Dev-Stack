@@ -1,16 +1,15 @@
-import { use, useState } from "react";
+import { useState } from "react";
 import type { TechnologiesType } from "../Types/TechnologiesType";
-import TechnologyCard from "./TechnologyCard";
 import { RxCross2 } from "react-icons/rx";
 import { Bounce, toast } from "react-toastify";
+import { Suspense } from "react";
+import TechnologyCards from "./TechnologyCards";
 
 interface TechnologiesProps {
   technologiesPromise: Promise<TechnologiesType[]>;
 }
 
 const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
-  const technologies = use(technologiesPromise);
-
   const [selectedTechnologies, setSelectedTechnologies] = useState<
     TechnologiesType[]
   >([]);
@@ -108,17 +107,19 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
           {/* Technology cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:col-span-3">
             {/* TechnologyCard components will go here */}
-            {technologies.map((technology) => (
-              <TechnologyCard
-                key={technology.id}
-                technology={technology}
+            <Suspense
+              fallback={
+                <div className="col-span-full flex justify-center py-20">
+                  <span className="loading loading-spinner loading-lg text-pink-500" />
+                </div>
+              }
+            >
+              <TechnologyCards
+                technologiesPromise={technologiesPromise}
+                selectedTechnologies={selectedTechnologies}
                 handleAddToStack={handleAddToStack}
-                isSelected={selectedTechnologies.some(
-                  (selectedTechnology) =>
-                    selectedTechnology.id === technology.id,
-                )}
               />
-            ))}
+            </Suspense>
           </div>
 
           {/* Your Stack */}
