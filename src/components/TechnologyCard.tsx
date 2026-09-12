@@ -4,6 +4,7 @@ import type { TechnologiesType } from "../Types/TechnologiesType";
 interface TechnologyCardProps {
   technology: TechnologiesType;
   handleAddToStack: (technology: TechnologiesType) => void;
+  isSelected: boolean;
 }
 
 type BadgeColors = {
@@ -28,6 +29,7 @@ const badgeColors: BadgeColors = {
 const TechnologyCard = ({
   technology,
   handleAddToStack,
+  isSelected,
 }: TechnologyCardProps) => {
   const { id, name, category, description, icon, rating, difficulty, badge } =
     technology;
@@ -79,11 +81,12 @@ const TechnologyCard = ({
       <button
         className="bg-slate-950 text-white rounded-lg
           w-full py-2 mt-2 text-sm cursor-pointer transition-all duration-300
-          hover:bg-slate-800"
+          hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed"
         type="button"
         onClick={() => handleAddToStack(technology)}
+        disabled={isSelected}
       >
-        Add to Stack
+        {isSelected ? "Added to Stack" : "Add to Stack"}
       </button>
     </div>
   );

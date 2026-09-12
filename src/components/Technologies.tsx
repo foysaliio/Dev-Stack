@@ -68,6 +68,10 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
                 key={technology.id}
                 technology={technology}
                 handleAddToStack={handleAddToStack}
+                isSelected={selectedTechnologies.some(
+                  (setSelectedTechnology) =>
+                    setSelectedTechnology.id === technology.id,
+                )}
               />
             ))}
           </div>
