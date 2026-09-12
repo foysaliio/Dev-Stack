@@ -1,6 +1,7 @@
 import { use, useState } from "react";
 import type { TechnologiesType } from "../Types/TechnologiesType";
 import TechnologyCard from "./TechnologyCard";
+import { RxCross2 } from "react-icons/rx";
 
 interface TechnologiesProps {
   technologiesPromise: Promise<TechnologiesType[]>;
@@ -93,6 +94,14 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
                       {selectedTechnology.category}
                     </p>
                   </div>
+
+                  <button
+                    type="button"
+                    aria-label={`Remove ${selectedTechnology.name}`}
+                    className="ml-auto p-1 text-slate-400 transition-all duration-300 hover:text-slate-600 cursor-pointer"
+                  >
+                    <RxCross2 />
+                  </button>
                 </div>
               ))}
             </div>
