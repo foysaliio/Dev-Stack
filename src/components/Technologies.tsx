@@ -13,6 +13,10 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
     TechnologiesType[]
   >([]);
 
+  const handleAddToStack = (technology: TechnologiesType): void => {
+    console.log(technology);
+  };
+
   return (
     <section id="technologies">
       <div className="container mx-auto px-3">
@@ -36,7 +40,7 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:col-span-3">
             {/* TechnologyCard components will go here */}
             {technologies.map((technology) => (
-              <TechnologyCard key={technology.id} technology={technology} />
+              <TechnologyCard key={technology.id} technology={technology} handleAddToStack={handleAddToStack} />
             ))}
           </div>
 

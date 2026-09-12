@@ -3,6 +3,7 @@ import type { TechnologiesType } from "../Types/TechnologiesType";
 
 interface TechnologyCardProps {
   technology: TechnologiesType;
+  handleAddToStack: (technology: TechnologiesType) => void;
 }
 
 type BadgeColors = {
@@ -24,7 +25,10 @@ const badgeColors: BadgeColors = {
   docker: "bg-sky-50 text-sky-600 border-sky-100",
 };
 
-const TechnologyCard = ({ technology }: TechnologyCardProps) => {
+const TechnologyCard = ({
+  technology,
+  handleAddToStack,
+}: TechnologyCardProps) => {
   const { id, name, category, description, icon, rating, difficulty, badge } =
     technology;
 
@@ -77,6 +81,7 @@ const TechnologyCard = ({ technology }: TechnologyCardProps) => {
           w-full py-2 mt-2 text-sm cursor-pointer transition-all duration-300
           hover:bg-slate-800"
         type="button"
+        onClick={() => handleAddToStack(technology)}
       >
         Add to Stack
       </button>
