@@ -14,6 +14,15 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
   >([]);
 
   const handleAddToStack = (technology: TechnologiesType): void => {
+    const isAlreadyAdded = selectedTechnologies.some(
+      (selectedTechnology) => selectedTechnology.id === technology.id,
+    );
+
+    if (isAlreadyAdded) {
+      console.warn("Technology already added");
+      return;
+    }
+
     const newSelectedTechnologies = [...selectedTechnologies, technology];
 
     setSelectedTechnologies(newSelectedTechnologies);
