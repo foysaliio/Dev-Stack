@@ -29,6 +29,14 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
     setSelectedTechnologies(newSelectedTechnologies);
   };
 
+  const handleRemoveFromStack = (id: string): void => {
+    const remainingTechnologies = selectedTechnologies.filter(
+      (selectedTechnology) => selectedTechnology.id !== id,
+    );
+
+    setSelectedTechnologies(remainingTechnologies);
+  };
+
   return (
     <section id="technologies">
       <div className="container mx-auto px-3">
@@ -98,6 +106,7 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
                   <button
                     type="button"
                     aria-label={`Remove ${selectedTechnology.name}`}
+                    onClick={() => handleRemoveFromStack(selectedTechnology.id)}
                     className="ml-auto p-1 text-slate-400 transition-all duration-300 hover:text-slate-600 cursor-pointer"
                   >
                     <RxCross2 />
