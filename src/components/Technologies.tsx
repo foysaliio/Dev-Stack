@@ -59,7 +59,7 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
 
     setSelectedTechnologies(remainingTechnologies);
 
-    toast.success(`${removedTechnology?.name} removed from your stack.`, {
+    toast.info(`${removedTechnology?.name} removed from your stack.`, {
       position: "bottom-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -73,7 +73,7 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
 
   const handleRemoveAll = (): void => {
     setSelectedTechnologies([]);
-    toast.success("All technologies removed from your stack.", {
+    toast.info("All technologies removed from your stack.", {
       position: "bottom-right",
       autoClose: 5000,
       hideProgressBar: false,

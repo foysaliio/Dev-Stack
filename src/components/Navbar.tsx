@@ -31,7 +31,7 @@ const Navbar = () => {
           <li>
             <a
               onClick={() => setIsOpen(false)}
-              className="hover:text-[#DB2777]"
+              className="text-[#DB2777]"
               href="#"
             >
               Home

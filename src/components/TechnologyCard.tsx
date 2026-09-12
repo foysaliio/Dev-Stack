@@ -72,7 +72,7 @@ const TechnologyCard = ({
           {category}
         </p>
 
-        <p className="text-slate-500">{difficulty}</p>
+        <p className="text-slate-700">{difficulty}</p>
 
         <p className="flex items-center gap-1 text-slate-700">
           <FaStar className="text-yellow-500" />
