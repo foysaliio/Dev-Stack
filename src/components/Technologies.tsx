@@ -1,4 +1,4 @@
-import { use } from "react";
+import { use, useState } from "react";
 import type { TechnologiesType } from "../Types/TechnologiesType";
 import TechnologyCard from "./TechnologyCard";
 
@@ -8,6 +8,10 @@ interface TechnologiesProps {
 
 const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
   const technologies = use(technologiesPromise);
+
+  const [selectedTechnologies, setSelectedTechnologies] = useState<
+    TechnologiesType[]
+  >([]);
 
   return (
     <section id="technologies">
@@ -44,7 +48,7 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
               No technologies selected yet.
             </p>
 
-            <p className="mt-3 py-5 rounded-xl border-slate-300 text-center text-sm text-slate-500 border border-dotted">
+            <p className="mt-3 py-5 rounded-xl border-slate-300 text-center text-sm text-slate-400 border border-dashed">
               Your stack is empty.
             </p>
           </aside>

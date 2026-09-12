@@ -32,7 +32,7 @@ const TechnologyCard = ({ technology }: TechnologyCardProps) => {
     badgeColors[id] ?? "bg-slate-50 text-slate-600 border-slate-100";
 
   return (
-    <div className="border border-slate-100 rounded-xl p-5 shadow-sm">
+    <div className="border border-slate-100 rounded-xl p-5 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
       {/* Icon, name and badge */}
       <div className="flex justify-between items-start gap-2">
         <div className="flex items-center gap-3 lg:block">
