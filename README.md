@@ -68,22 +68,21 @@ Explore Technologies button reuse this value.
 
 ## Project Structure
 
-| Path                                 | Description                          |
-| ------------------------------------ | ------------------------------------ |
-| `public/technologies.json`           | Technology catalog                   |
-| `public/favicon.png`                 | Website favicon                      |
-| `screenshots/`                       | Screenshots used in this README      |
-| `src/assets/`                        | Project images                       |
-| `src/components/Navbar.tsx`          | Responsive navigation                |
-| `src/components/Hero.tsx`            | Hero content and banner              |
-| `src/components/Technologies.tsx`    | Selected stack state and handlers    |
-| `src/components/TechnologyCards.tsx` | Reads fetched data and renders cards |
-| `src/components/TechnologyCard.tsx`  | Individual technology card           |
-| `src/components/Footer.tsx`          | Responsive footer                    |
-| `src/Types/TechnologiesType.ts`      | Technology data type                 |
-| `src/App.tsx`                        | Main application composition         |
-| `src/index.css`                      | Global styles and shared gradient    |
-| `src/main.tsx`                       | Application entry point              |
+| Path                                 | Description                            |
+| ------------------------------------ | -------------------------------------- |
+| `public/technologies.json`           | Technology catalog                     |
+| `public/favicon.png`                 | Website favicon                        |
+| `public/dev-stack-desktop.png`       | Project screenshot used in this README |
+| `src/assets/`                        | Project images                         |
+| `src/components/Navbar.tsx`          | Responsive navigation                  |
+| `src/components/Hero.tsx`            | Hero content and banner                |
+| `src/components/Technologies.tsx`    | Selected stack state and handlers      |
+| `src/components/TechnologyCards.tsx` | Reads fetched data and renders cards   |
+| `src/components/TechnologyCard.tsx`  | Individual technology card             |
+| `src/components/Footer.tsx`          | Responsive footer                      |
+| `src/Types/TechnologiesType.ts`      | Technology data type                   |
+| `src/App.tsx`                        | Main application composition           |
+| `src/index.css`                      | Global styles and shared gradient      |
 
 ## Getting Started
 
