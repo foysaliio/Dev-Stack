@@ -94,7 +94,7 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
             className="text-2xl lg:text-4xl
               font-bold text-slate-900"
           >
-            Explore the{" "}
+            Explore the
             <span className="brand-gradient-text">Technologies</span>
           </h2>
 

@@ -1,7 +1,5 @@
 import { useState } from "react";
-// import logo from "../assets/logo-text.png";
-import hamburger from "../assets/hamburger.png";
-
+import { HiMenuAlt1 } from "react-icons/hi";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,7 +15,7 @@ const Navbar = () => {
           aria-expanded={isOpen}
           onClick={() => setIsOpen(!isOpen)}
         >
-          <img src={hamburger} className="w-5 h-5" alt="" />
+          <HiMenuAlt1 className="w-7 h-7" />
         </button>
 
         {/* Logo */}
